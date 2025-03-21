@@ -7,7 +7,7 @@ const vitalSignsSchema = new mongoose.Schema({
         required: [true, "User is required"],
     },
     heartRate: {
-        type: String,
+        type: Number,
         required: [true, "Heart rate is required"],
         min: 30,  // Set reasonable lower limit
         max: 200, // Set reasonable upper limit
@@ -17,7 +17,7 @@ const vitalSignsSchema = new mongoose.Schema({
         required: [true, "Blood pressure is required"],
     },
     temperature: {
-        type: String,
+        type: Number,
         required: [true, "Temperature is required"],
         min: 30,
         max: 45,

@@ -10,10 +10,19 @@ const resolvers = {
     Mutation: {
         addVitalSigns: async (_, { heartRate, bloodPressure, temperature }, { user }) => {
             if (!user) throw new Error('You must be logged in');
+
+            if (heartRate == null || bloodPressure == null || temperature == null) {
+                throw new Error("Invalid input: heartRate, bloodPressure, and temperature are required");
+            }
+
             const newVital = new VitalSigns(
                 { userId: user._id, heartRate, bloodPressure, temperature }
             );
+            //console.log("Saving vital signs:", newVital);
+
             await newVital.save();
+            //console.log("Saved vital signs:", newVital);
+
             return newVital;
         },
 
