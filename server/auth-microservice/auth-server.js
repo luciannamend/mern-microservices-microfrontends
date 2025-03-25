@@ -17,7 +17,7 @@ async function startServer() {
     // Express app to handle HTTP requests.
     const app = express();
     // Port for GraphQL server
-    const PORT = 4000;
+    const PORT = 4001;
 
     try {
         // Connect to MongoDB
@@ -36,7 +36,6 @@ async function startServer() {
                     'http://localhost:3000',
                     'http://localhost:3001',
                     'http://localhost:3002',
-                    'http://localhost:5173',
                     'https://studio.apollographql.com'
                 ],
                 credentials: true, // Allow credentials (cookies)

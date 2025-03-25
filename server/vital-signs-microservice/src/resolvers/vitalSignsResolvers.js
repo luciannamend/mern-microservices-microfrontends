@@ -3,13 +3,13 @@ import VitalSigns from "../models/vitalSigns.js";
 const resolvers = {
     Query: {
         vitalSigns: async (_, __, { user }) => {
-            if (!user) throw new Error('You must be logged in');
+            if (!user) throw new Error('You must be logged in to see the Vital Signs List');
             return await VitalSigns.find();
         },
     },
     Mutation: {
         addVitalSigns: async (_, { heartRate, bloodPressure, temperature }, { user }) => {
-            if (!user) throw new Error('You must be logged in');
+            if (!user) throw new Error('You must be logged in to add Vital Signs!');
 
             if (heartRate == null || bloodPressure == null || temperature == null) {
                 throw new Error("Invalid input: heartRate, bloodPressure, and temperature are required");
